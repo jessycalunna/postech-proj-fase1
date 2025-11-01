@@ -1,9 +1,7 @@
 from fastapi import FastAPI, HTTPException
-from sqlalchemy import create_engine, Column, String, Float, Integer
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, Session
-from typing import Optional
+from fastapi.responses import JSONResponse
 import pandas as pd
+from typing import Optional
 import os
 
 ##############################################################
