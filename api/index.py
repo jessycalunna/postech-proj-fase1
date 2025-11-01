@@ -1,8 +1,7 @@
-from fastapi import FastAPI, HTTPException
-from fastapi.responses import JSONResponse
-import pandas as pd
-from typing import Optional
+from fastapi import FastAPI
+from mangum import Mangum
 import os
+import pandas as pd
 
 ##############################################################
 ####### Inicialização da API 
@@ -164,4 +163,4 @@ def listar_categorias():
         "categorias": sorted(categorias)
     }
 
-handler = app
+handler = Mangum(app)
