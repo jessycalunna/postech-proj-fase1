@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/main.py": {
-      "includeFiles": "data/livros.csv"
+      "includeFiles": "../data/livros.csv"
     }
   },
   "routes": [
