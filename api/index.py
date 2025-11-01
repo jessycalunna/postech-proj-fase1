@@ -165,4 +165,4 @@ def listar_categorias():
         "categorias": sorted(categorias)
     }
 
-handler = Mangum(app)
+# handler = Mangum(app)
