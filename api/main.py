@@ -18,7 +18,7 @@ app = FastAPI(
 ####### Configuração do SQLite 
 ##############################################################
 
-path_csv = "livros.csv"
+path_csv = "../data/livros.csv"
 
 ##############################################################
 ####### Carregar Base de Dados em DF Pandas 
