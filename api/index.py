@@ -62,7 +62,7 @@ def verificar_saude():
     Verifica o status da API e conectividade com os dados
     """
     dados_ok = not df_livros.empty
-    arquivo_existe = os.path.exists(CAMINHO_CSV)
+    arquivo_existe = os.path.exists(path_csv)
     
     if dados_ok and arquivo_existe:
         status = "healthy"
@@ -73,7 +73,7 @@ def verificar_saude():
         "status": status,
         "api": "online",
         "base_dados": {
-            "arquivo_csv": CAMINHO_CSV,
+            "arquivo_csv": path_csv,
             "arquivo_existe": arquivo_existe,
             "dados_carregados": dados_ok,
             "total_livros": len(df_livros) if dados_ok else 0,
