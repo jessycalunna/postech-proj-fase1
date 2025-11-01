@@ -163,3 +163,5 @@ def listar_categorias():
         "total": len(categorias),
         "categorias": sorted(categorias)
     }
+
+handler = app
