@@ -15,7 +15,7 @@ app = FastAPI(
 )
 
 ##############################################################
-####### Configuração do SQLite 
+####### Configuração do Path do CSV
 ##############################################################
 
 path_csv = os.path.join(os.getcwd(), "data/livros.csv")
@@ -41,6 +41,12 @@ def carregar_base_dados():
 
 # Carrega os dados na inicialização
 df_livros = carregar_base_dados()
+
+@app.get("/")
+def read_root():
+    path_csv = os.path.join(os.getcwd(), "data/livros.csv")
+    # seu código aqui
+    return {"message": "API funcionando"}
 
 ##############################################################
 ####### MÉTODO 1: Verificar Status da API e Dados 
