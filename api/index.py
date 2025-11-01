@@ -43,10 +43,13 @@ def carregar_base_dados():
 # Carrega os dados na inicialização
 df_livros = carregar_base_dados()
 
+
+##############################################################
+####### Teste Inicial da API 
+##############################################################
+
 @app.get("/")
 def read_root():
-    path_csv = os.path.join(os.getcwd(), "data/livros.csv")
-    # seu código aqui
     return {"message": "API funcionando"}
 
 ##############################################################
@@ -164,5 +167,3 @@ def listar_categorias():
         "total": len(categorias),
         "categorias": sorted(categorias)
     }
-
-# handler = Mangum(app)
