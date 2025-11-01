@@ -18,8 +18,6 @@ app = FastAPI(
 ####### Configuração do SQLite 
 ##############################################################
 
-# path_csv = "../data/livros.csv"
-
 path_csv = os.path.join(os.getcwd(), "data/livros.csv")
 
 ##############################################################
