@@ -20,7 +20,7 @@ app = FastAPI(
 
 # path_csv = os.path.join(os.getcwd(), "data/livros.csv")
 
-path_csv = "data/livros.csv"
+path_csv = "livros.csv"
 
 ##############################################################
 ####### Carregar Base de Dados em DF Pandas 
