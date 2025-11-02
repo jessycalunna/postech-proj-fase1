@@ -1,43 +1,7 @@
 <!-- TITULO DO PROJETO -->
+
+<h1 align="center">Fase 1: Tech Challenge Machine Learning Engineering</h1>
 <br />
-  <h3 align="center">Fase 1: Tech Challenge Machine Learning Engineering</h3>
-
-  <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-  </p>
-</div>
-
-
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
-
 
 <!-- SOBRE O PROJETO -->
 ## Objetivo
@@ -46,7 +10,7 @@ Este projeto foi desenvolvido com o objetivo de **construir uma infraestrutura d
 
 O sistema coleta dados do site [Books to Scrape](https://books.toscrape.com/), processa as informações e as disponibiliza por meio de uma API.
 
-As tecnologias utilizadas para a realização do projeto foram:
+### Tecnologias Utilizadas
 
 * [![FastAPI][FastAPI]][FastAPI-url]
 * [![pandas][Pandas]][Pandas-url]
@@ -62,19 +26,19 @@ Todos os testes foram realizados em ambiente virtual local com uso do Python 3.1
 <!-- API PUBLICA -->
 ## API Pública (Deploy Vercel)
 
-Para acessar a API pública, hospedada no Vercel, acesse [https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app](https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app)
+Para acessar a API pública, hospedada no Vercel, acesse [o link](https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app)
 
 ### Documentação dos Endpoints da API
 
-Para consultar o SWAGGER da API acesse [https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/docs](https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/docs)
+Para consultar o SWAGGER da API acesse [a página de documentação](https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/docs). A tabela abaixo detalha os métodos disponíveis na API pública.
 
 | Método | Endpoint | Descrição |
 |--------|-----------|------------|
 | `GET` | `/api/v1/health` | Verifica o status da API e a conectividade com os dados |
-| `GET` | `/api/v1/books` | Lista ID e título dos livros disponíveis |
+| `GET` | `/api/v1/books` | Lista ID e título de todos os livros disponíveis na base de dados |
 | `GET` | `/api/v1/books/search` | Busca livros por título e/ou categoria |
-| `GET` | `/api/v1/books/{id}` | Obtém informações completas de um livro específico |
-| `GET` | `/api/v1/categories` | Lista todas as categorias disponíveis |
+| `GET` | `/api/v1/books/{id}` | Obtém informações completas de um livro específico pelo ID |
+| `GET` | `/api/v1/categories` | Lista todas as categorias de livros disponíveis na base de dados |
 
 <!-- REPRODUZIR O PROJETO -->
 ## Como reproduzir o projeto localmente
