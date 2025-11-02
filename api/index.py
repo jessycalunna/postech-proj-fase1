@@ -3,7 +3,6 @@ from mangum import Mangum
 import os
 import pandas as pd
 from typing import Optional
-import os
 
 ##############################################################
 ####### Inicialização da API 
