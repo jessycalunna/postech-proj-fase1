@@ -6,9 +6,7 @@
 <!-- SOBRE O PROJETO -->
 ## Objetivo
 
-Este projeto foi desenvolvido com o objetivo de **construir uma infraestrutura de extração, transformação e disponibilização de dados via API pública**, permitindo que **cientistas de dados e sistemas de recomendação** possam consumir dados estruturados de forma simples e eficiente.
-
-O sistema coleta dados do site [Books to Scrape](https://books.toscrape.com/), processa as informações e as disponibiliza por meio de uma API.
+Este projeto foi desenvolvido com o objetivo de construir uma infraestrutura de extração, transformação e disponibilização dos dados de livros contidos no site [Books to Scrape](https://books.toscrape.com/) e disponibilização via API pública, permitindo que **cientistas de dados e sistemas de recomendação** possam consumir dados estruturados de forma simples e eficiente.
 
 ### Tecnologias Utilizadas
 
