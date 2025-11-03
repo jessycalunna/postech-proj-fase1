@@ -21,14 +21,68 @@ Este projeto foi desenvolvido com o objetivo de construir uma infraestrutura de 
 
 Todos os testes foram realizados em ambiente virtual local com uso do Python 3.11.
 
+<!-- ARQUITETURA DO PROJETO -->
+
+## Arquitetura do Projeto
+
+### Arquitetura Atual
+
+O projeto foi desenvolvido com a fase de Processamento de Dados e construção de API de consulta das informações. O que está representado em caixas amarelas já está desenvolvido e o que está em vermelho seria uma evolução da arquitetura atual.
+
+```mermaid
+flowchart LR
+    %% --- Processamento de Dados ---
+    subgraph process [Processamento de Dados]
+      a[Fonte de Dados<br/>Books to Scrape] --> b[Script de Extração<br/>scripts/scrape_livros_csv.py]
+      b --> c[Armazena Base de Dados<br/>data/csv/livros.csv]
+    end
+
+    %% --- API ---
+    subgraph api [API]
+      direction LR
+      d[Base de Dados em Memória<br/>DataFrame df_livros] --> e[Definição de Métodos da API<br/>FastAPI]
+      e --> f["GET /api/v1/health"]
+      e --> g["GET /api/v1/books"]
+      e --> h["GET /api/v1/search"]
+      e --> i["GET /api/v1/books/{id}"]
+      e --> j["GET /api/v1/categories"]
+    end
+
+    %% --- Machine Learning ---
+    subgraph ml [Machine Learning]
+      k[Preparação de Dados] --> l[Treinamento do Modelo de Recomendação]
+      l --> m[Deploy e Monitoramento do Modelo]
+    end
+
+    %% Conexões entre domínios
+    process --> api
+    api --> ml
+
+    style ml stroke:#D50000,fill:#FFCDD2
+```
+
+### Escalabilidade Futura
+
+Para escalabilidade futura, arquitetura pode sofrer as seguintes evoluções:
+* Substituição do CSV/Dataframe por um banco de dados relacional para armazenar os dados
+* Criação de fluxo de ingestão de dados incremental para coleta de informações do site substituindo a carga completa e manual
+
+### Cenários de Uso para Cientistas de Dados/ML
+Os dados da API podem ser utilizados para:
+* Criar modelos de recomendação baseados em categoria e ratings
+* Analisar preços e categorias de livros
+
 <!-- API PUBLICA -->
 ## API Pública (Deploy Vercel)
 
-Para acessar a API pública, hospedada no Vercel, acesse [o link](https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app)
+A API pública deste projeto está hospedada na plataforma **Vercel** e permite o consumo dos dados coletados de forma simples e escalável.  
+Você pode acessá-la diretamente pelo link: [https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app](https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app)
 
 ### Documentação dos Endpoints da API
 
-Para consultar o SWAGGER da API acesse [a página de documentação](https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/docs). A tabela abaixo detalha os métodos disponíveis na API pública.
+Para visualizar a documentação interativa (Swagger UI) e testar as requisições diretamente pelo navegador, acesse: [https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/docs](https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/docs)
+
+A tabela abaixo descreve todos os endpoints disponíveis na API pública:
 
 | Método | Endpoint | Descrição |
 |--------|-----------|------------|
@@ -38,8 +92,10 @@ Para consultar o SWAGGER da API acesse [a página de documentação](https://pos
 | `GET` | `/api/v1/books/{id}` | Obtém informações completas de um livro específico pelo ID |
 | `GET` | `/api/v1/categories` | Lista todas as categorias de livros disponíveis na base de dados |
 
+→ Utilize o Swagger UI para explorar os endpoints, visualizar exemplos de resposta e testar filtros de busca em tempo real.
+
 <!-- REPRODUZIR O PROJETO -->
-## Como reproduzir o projeto localmente
+## Reproduzir Localmente
 
 1. Clone o Repositório
    ```sh
@@ -78,19 +134,15 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 
 
-<!-- CONTATO -->
+<!-- AUTORA -->
 ## Contato
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Jessyca Oliveira - jessyca.lunna@gmail.com
 
 
 
 
-<!-- MARKDOWN LINKS & IMAGES -->
+<!-- LINKS E IMAGENS -->
 [FastAPI]: https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white
 [FastAPI-url]: https://fastapi.tiangolo.com/
 [Pandas]: https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white
