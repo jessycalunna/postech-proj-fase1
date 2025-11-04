@@ -46,9 +46,23 @@ df_livros = carregar_base_dados()
 ####### Teste Inicial da API 
 ##############################################################
 
-@app.get("/")
-def read_root():
-    return {"message": "API funcionando"}
+@app.get("/", response_class=HTMLResponse)
+def home():
+    """Exibe o conteúdo do README.md renderizado em HTML."""
+    with open("../README.md", "r", encoding="utf-8") as f:
+        content = f.read()
+    html_content = markdown.markdown(content)
+    return f"""
+    <html>
+        <head>
+            <title>Books API</title>
+            <meta charset="utf-8">
+        </head>
+        <body style="font-family: sans-serif; max-width: 900px; margin: 40px auto; line-height: 1.6;">
+            {html_content}
+        </body>
+    </html>
+    """
 
 ##############################################################
 ####### MÉTODO 1: Verificar Status da API e Dados 
