@@ -76,11 +76,10 @@ Os dados da API podem ser utilizados para:
 ## API Pública (Deploy Vercel)
 
 A API pública deste projeto está hospedada na plataforma **Vercel** e permite o consumo dos dados coletados de forma simples e escalável.  
-Você pode acessá-la diretamente pelo link: [https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app](https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app)
-
+Você pode acessá-la diretamente pelo link: [https://postech-proj-fase1-802d89b71-jessycas-projects-cf4a9dab.vercel.app/](https://postech-proj-fase1-802d89b71-jessycas-projects-cf4a9dab.vercel.app/)
 ### Documentação dos Endpoints da API
 
-Para visualizar a documentação interativa (Swagger UI) e testar as requisições diretamente pelo navegador, acesse: [https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/docs](https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/docs)
+Para visualizar a documentação interativa (Swagger UI) e testar as requisições diretamente pelo navegador, acesse: [https://postech-proj-fase1-802d89b71-jessycas-projects-cf4a9dab.vercel.app/docs](https://postech-proj-fase1-802d89b71-jessycas-projects-cf4a9dab.vercel.app/docs)
 
 A tabela abaixo descreve todos os endpoints disponíveis na API pública:
 
@@ -126,32 +125,32 @@ A tabela abaixo descreve todos os endpoints disponíveis na API pública:
 
 #### URL Base
 ```
-https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/
+https://postech-proj-fase1-802d89b71-jessycas-projects-cf4a9dab.vercel.app/api/v1/
 ```
 #### Verificar o Status da API
 * CURL
 ```bash
-curl -X GET "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/health"
+curl -X GET "https://postech-proj-fase1-802d89b71-jessycas-projects-cf4a9dab.vercel.app/api/v1/health"
 ```
 * Python
 ```python
 import requests
 
-url = "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/health"
+url = "https://postech-proj-fase1-802d89b71-jessycas-projects-cf4a9dab.vercel.app/api/v1/health"
 response = requests.get(url)
 print(response.json())
 ```
 #### Listar todos os livros (ID e título)
 * CURL
 ```bash
-curl -X GET "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/books"
+curl -X GET "https://postech-proj-fase1-802d89b71-jessycas-projects-cf4a9dab.vercel.app/api/v1/books"
 ```
 
 * Python
 ```python
 import requests
 
-url = "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/books"
+url = "https://postech-proj-fase1-802d89b71-jessycas-projects-cf4a9dab.vercel.app/api/v1/books"
 response = requests.get(url)
 for book in response.json()[:5]:
     print(book)
@@ -159,7 +158,7 @@ for book in response.json()[:5]:
 #### Buscar livros por título e/ou categoria
 * CURL
 ```bash
-curl -X GET "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/books/search?title=travel&category=nonfiction"
+curl -X GET "https://postech-proj-fase1-802d89b71-jessycas-projects-cf4a9dab.vercel.app/api/v1/books/search?title=travel&category=nonfiction"
 ```
 
 * Python
@@ -167,14 +166,14 @@ curl -X GET "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.ver
 import requests
 
 params = {"title": "travel", "category": "nonfiction"}
-url = "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/books/search"
+url = "https://postech-proj-fase1-802d89b71-jessycas-projects-cf4a9dab.vercel.app/api/v1/books/search"
 response = requests.get(url, params=params)
 print(response.json())
 ```
 #### Obter detalhes do livro por ID
 * CURL
 ```bash
-curl -X GET "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/books/42"
+curl -X GET "https://postech-proj-fase1-802d89b71-jessycas-projects-cf4a9dab.vercel.app/api/v1/books/42"
 ```
 
 * Python
@@ -182,7 +181,7 @@ curl -X GET "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.ver
 import requests
 
 book_id = 42
-url = f"https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/books/{book_id}"
+url = f"https://postech-proj-fase1-802d89b71-jessycas-projects-cf4a9dab.vercel.app/api/v1/books/{book_id}"
 response = requests.get(url)
 print(response.json())
 ```
@@ -190,14 +189,14 @@ print(response.json())
 #### Listar todas as Categorias de Livros
 * CURL
 ```bash
-curl -X GET "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/categories"
+curl -X GET "https://postech-proj-fase1-802d89b71-jessycas-projects-cf4a9dab.vercel.app/api/v1/categories"
 ```
 
 * Pyhton
 ```python
 import requests
 
-url = "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/categories"
+url = "https://postech-proj-fase1-802d89b71-jessycas-projects-cf4a9dab.vercel.app/api/v1/categories"
 response = requests.get(url)
 print(response.json())
 ```
