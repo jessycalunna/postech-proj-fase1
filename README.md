@@ -205,7 +205,7 @@ print(response.json())
 💡 Todos os endpoints retornam respostas em formato **JSON**, prontas para uso em **pipelines de dados**, **dashboards** ou **modelos de Machine Learning**.
 
 <!-- AUTORA -->
-## Contato
+## Autora
 
 Jessyca Oliveira - jessyca.lunna@gmail.com
 
