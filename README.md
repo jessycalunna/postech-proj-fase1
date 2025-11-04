@@ -1,6 +1,6 @@
 <!-- TITULO DO PROJETO -->
 
-<h1 align="center">Fase 1: PosTech Challenge Machine Learning Engineering</h1>
+<h1 align="center">Fase 1: Tech Challenge Machine Learning Engineering</h1>
 <br />
 
 <!-- SOBRE O PROJETO -->
