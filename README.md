@@ -208,7 +208,7 @@ print(response.json())
 ## Autora
 
 Jessyca Oliveira - jessyca.lunna@gmail.com
-
+Vídeo Apresentação: []([https://books.toscrape.com/](https://drive.google.com/file/d/1El5cL5RxRPcxBD2EQAwOXRAa9PiGcvk2/view?usp=sharing))
 
 <!-- LINKS E IMAGENS -->
 [FastAPI]: https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white
