@@ -156,7 +156,7 @@ response = requests.get(url)
 for book in response.json()[:5]:
     print(book)
 ```
-### Buscar livros por título e/ou categoria
+#### Buscar livros por título e/ou categoria
 * CURL
 ```bash
 curl -X GET "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/books/search?title=travel&category=nonfiction"
@@ -171,7 +171,7 @@ url = "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.ap
 response = requests.get(url, params=params)
 print(response.json())
 ```
-### Obter detalhes do livro por ID
+#### Obter detalhes do livro por ID
 * CURL
 ```bash
 curl -X GET "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/books/42"
