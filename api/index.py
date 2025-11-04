@@ -46,60 +46,9 @@ df_livros = carregar_base_dados()
 ####### Teste Inicial da API 
 ##############################################################
 
-@app.get("/", response_class=HTMLResponse, include_in_schema=False)
-def home():
-    """
-    Exibe o conteúdo do README.md renderizado em HTML como página inicial da API.
-    """
-    try:
-        readme_path = os.path.join(os.getcwd(), "README.md")
-        with open(readme_path, "r", encoding="utf-8") as f:
-            readme_content = f.read()
-        html_content = markdown.markdown(readme_content)
-        return f"""
-        <html>
-            <head>
-                <meta charset="utf-8">
-                <title>📚 Books API</title>
-                <style>
-                    body {{
-                        font-family: 'Segoe UI', Roboto, sans-serif;
-                        max-width: 900px;
-                        margin: 40px auto;
-                        line-height: 1.6;
-                        color: #333;
-                    }}
-                    code {{
-                        background-color: #f4f4f4;
-                        padding: 2px 4px;
-                        border-radius: 4px;
-                        font-size: 0.95em;
-                    }}
-                    pre {{
-                        background-color: #f4f4f4;
-                        padding: 10px;
-                        border-radius: 8px;
-                        overflow-x: auto;
-                    }}
-                    h1, h2, h3 {{
-                        color: #d9480f;
-                    }}
-                    a {{
-                        color: #0078d4;
-                        text-decoration: none;
-                    }}
-                    a:hover {{
-                        text-decoration: underline;
-                    }}
-                </style>
-            </head>
-            <body>
-                {html_content}
-            </body>
-        </html>
-        """
-    except Exception as e:
-        return f"<h2>Erro ao carregar README.md:</h2><pre>{str(e)}</pre>"
+@app.get("/")
+def read_root():
+    return {"message": "API funcionando. Acesse esta <url>/docs para visualizar os métodos disponíveis."}
 
 ##############################################################
 ####### MÉTODO 1: Verificar Status da API e Dados 
