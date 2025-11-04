@@ -121,16 +121,44 @@ A tabela abaixo descreve todos os endpoints disponíveis na API pública:
    ```
    > Acesse em: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
-<!-- USAGE EXAMPLES -->
-## Usage
+<!-- Exemplos de Uso -->
+## Exemplos de Uso
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Exemplos de Uso da API
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+1. URL Base
+```
+https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/
+```
+2. Verificar o Status da API
+#### CURL
+```bash
+curl -X GET "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/health"
+```
+#### Python
+```python
+import requests
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+url = "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/health"
+response = requests.get(url)
+print(response.json())
+```
+3. Listar todos os livros (ID e título)
+#### CURL
+```bash
+curl -X GET "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/books"
+```
 
+#### Python
+```python
+import requests
 
+url = "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/books"
+response = requests.get(url)
+for book in response.json()[:5]:
+    print(book)
+```
+4. sdfsdf
 
 
 
