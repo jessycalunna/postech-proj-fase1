@@ -13,7 +13,9 @@ HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
 }
 
-
+##############################################################
+####### FUNÇÃO 1: Buscar número de páginas 
+##############################################################
 
 def obter_numero_paginas():
     """Descobre quantas páginas existem no catálogo"""
@@ -29,11 +31,13 @@ def obter_numero_paginas():
         return total_paginas
     return 1
 
+##############################################################
+####### FUNÇÃO 2: Extrair o ID do livro
+##############################################################
+
 def extrair_id_livro(url_livro):
     """Extrai o ID do livro a partir da URL"""
     try:
-        # O ID está na URL no formato: catalogue/nome-do-livro_ID/index.html
-        # Exemplo: catalogue/a-light-in-the-attic_1000/index.html
         partes = url_livro.split('_')
         if len(partes) >= 2:
             id_livro = partes[-1].replace('/index.html', '').replace('/', '')
@@ -41,6 +45,10 @@ def extrair_id_livro(url_livro):
         return None
     except:
         return None
+
+##############################################################
+####### FUNÇÃO 3: Extrair dados do Livro
+##############################################################
 
 def extrair_dados_livro(artigo):
     """Extrai as informações de um livro específico"""
@@ -55,7 +63,7 @@ def extrair_dados_livro(artigo):
         # Preço (remove o símbolo £)
         preco = artigo.find('p', class_='price_color').text.strip()[1:]
         
-        # Rating (mantém o texto original: One, Two, Three, Four, Five)
+        # Rating
         rating_tag = artigo.find('p', class_='star-rating')
         rating = rating_tag['class'][1] if rating_tag and len(rating_tag['class']) > 1 else 'N/A'
         
@@ -64,10 +72,9 @@ def extrair_dados_livro(artigo):
         
         # URL da imagem
         imagem = artigo.find('img')['src']
-        # Corrige o caminho relativo da imagem
+
         if imagem.startswith('../'):
-            imagem = URL_BASE + imagem.replace('../', '')
-        
+            imagem = URL_BASE + imagem.replace('../', '')        
         return {
             'id': id_livro,
             'titulo': titulo,
@@ -79,6 +86,10 @@ def extrair_dados_livro(artigo):
     except Exception as e:
         print(f"Erro ao extrair dados: {e}")
         return None
+
+##############################################################
+####### FUNÇÃO 4: Extrair categoria do livro
+##############################################################
 
 def obter_categoria_livro(url_livro):
     """Acessa a página individual do livro para obter a categoria"""
@@ -95,6 +106,10 @@ def obter_categoria_livro(url_livro):
         return "Sem categoria"
     except:
         return "Erro ao obter"
+
+##############################################################
+####### FUNÇÃO 5: Processa página do catálogo
+##############################################################
 
 def processar_pagina(numero_pagina):
     """Processa uma página específica do catálogo"""
@@ -129,6 +144,10 @@ def processar_pagina(numero_pagina):
         print(f"Erro na página {numero_pagina}: {e}")
         return []
 
+##############################################################
+####### FUNÇÃO 6: Oquestrar o scraping e gravando em CSV
+##############################################################
+
 def main():
     """Função principal que coordena o scraping"""
     print("Iniciando scraping de books.toscrape.com...")
@@ -140,8 +159,7 @@ def main():
     
     todos_livros = []
     
-    # Usa ThreadPoolExecutor para processar múltiplas páginas simultaneamente
-    # Isso acelera significativamente o processo
+    # ThreadPoolExecutor para acelerar o processo
     with ThreadPoolExecutor(max_workers=5) as executor:
         # Processa todas as páginas em paralelo
         resultados = executor.map(processar_pagina, range(1, total_paginas + 1))
@@ -153,10 +171,10 @@ def main():
     # Cria DataFrame com pandas
     df = pd.DataFrame(todos_livros)
     
-    # Reordena as colunas na ordem solicitada (com ID no início)
+    # Reordenar colunas
     df = df[['id', 'titulo', 'preco', 'rating', 'disponibilidade', 'categoria', 'imagem']]
     
-    # Exporta para CSV
+    # Exportar CSV
     nome_arquivo = 'livros.csv'
     df.to_csv(nome_arquivo, index=False, encoding='utf-8-sig')
     
@@ -165,8 +183,6 @@ def main():
     
     print(f"\n{'='*60}")
     print(f"Scraping concluído com sucesso!")
-    print(f"Total de livros coletados: {len(todos_livros)}")
-    print(f"Tempo de execução: {tempo_total:.2f} segundos")
     print(f"Arquivo salvo: {nome_arquivo}")
     print(f"{'='*60}")
 
