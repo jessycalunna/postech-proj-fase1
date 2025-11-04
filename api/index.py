@@ -49,7 +49,7 @@ df_livros = carregar_base_dados()
 @app.get("/", response_class=HTMLResponse)
 def home():
     """Exibe o conteúdo do README.md renderizado em HTML."""
-    with open("../README.md", "r", encoding="utf-8") as f:
+    with open("README.md", "r", encoding="utf-8") as f:
         content = f.read()
     html_content = markdown.markdown(content)
     return f"""
