@@ -4,11 +4,16 @@ import pandas as pd
 from concurrent.futures import ThreadPoolExecutor
 import time
 
-# Configurações iniciais
+##############################################################
+########## Configurações iniciais
+##############################################################
+
 URL_BASE = "https://books.toscrape.com/"
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
 }
+
+
 
 def obter_numero_paginas():
     """Descobre quantas páginas existem no catálogo"""
