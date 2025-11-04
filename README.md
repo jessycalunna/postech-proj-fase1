@@ -122,20 +122,18 @@ A tabela abaixo descreve todos os endpoints disponíveis na API pública:
    > Acesse em: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
 <!-- Exemplos de Uso -->
-## Exemplos de Uso
+## Exemplos de Uso da API
 
-Exemplos de Uso da API
-
-1. URL Base
+#### URL Base
 ```
 https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/
 ```
-2. Verificar o Status da API
-#### CURL
+#### Verificar o Status da API
+* CURL
 ```bash
 curl -X GET "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/health"
 ```
-#### Python
+* Python
 ```python
 import requests
 
@@ -143,13 +141,13 @@ url = "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.ap
 response = requests.get(url)
 print(response.json())
 ```
-3. Listar todos os livros (ID e título)
-#### CURL
+#### Listar todos os livros (ID e título)
+* CURL
 ```bash
 curl -X GET "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/books"
 ```
 
-#### Python
+* Python
 ```python
 import requests
 
@@ -158,16 +156,58 @@ response = requests.get(url)
 for book in response.json()[:5]:
     print(book)
 ```
-4. sdfsdf
+### Buscar livros por título e/ou categoria
+* CURL
+```bash
+curl -X GET "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/books/search?title=travel&category=nonfiction"
+```
 
+* Python
+```python
+import requests
 
+params = {"title": "travel", "category": "nonfiction"}
+url = "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/books/search"
+response = requests.get(url, params=params)
+print(response.json())
+```
+### Obter detalhes do livro por ID
+* CURL
+```bash
+curl -X GET "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/books/42"
+```
+
+* Python
+```python
+import requests
+
+book_id = 42
+url = f"https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/books/{book_id}"
+response = requests.get(url)
+print(response.json())
+```
+
+#### Listar todas as Categorias de Livros
+* CURL
+```bash
+curl -X GET "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/categories"
+```
+
+* Pyhton
+```python
+import requests
+
+url = "https://postech-proj-fase1-ixihc9ir3-jessycas-projects-cf4a9dab.vercel.app/api/v1/categories"
+response = requests.get(url)
+print(response.json())
+```
+
+💡 Todos os endpoints retornam respostas em formato **JSON**, prontas para uso em **pipelines de dados**, **dashboards** ou **modelos de Machine Learning**.
 
 <!-- AUTORA -->
 ## Contato
 
 Jessyca Oliveira - jessyca.lunna@gmail.com
-
-
 
 
 <!-- LINKS E IMAGENS -->
